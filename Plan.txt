@@ -1,0 +1,11 @@
+Goals:
+1) Using all data entries, make a model that can predict the risk of getting Alzheimer's
+2) Using only patient data, make a model that can predict the age of getting Alzheimer's
+3) Display data in a clear format
+
+Steps:
+1) Clean Data
+2) Parse Data
+3) Make Model 1
+4) Make Model 2
+5) Make Website
