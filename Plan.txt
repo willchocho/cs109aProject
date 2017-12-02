@@ -5,7 +5,21 @@ Goals:
 
 Steps:
 1) Clean Data
+-- NaNs
+-- Categorical data
+-- Eliminate meaningless data
 2) Parse Data
 3) Make Model 1
 4) Make Model 2
 5) Make Website
+
+
+
+
+Observations on Data:
+EXAMDATE_bl: First time the person comes to be examined, right after screening
+EXAMDATE: Same, or next time the person comes to be examined
+
+Missing data can usually be attributed to loss of contact or death of patient
+
+Group patients  together
