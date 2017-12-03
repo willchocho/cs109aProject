@@ -29,4 +29,14 @@ Group patients together
 Checklist:
 1) Identified all variables
 2) Created variable that indicates whether a patient has ever had Alzheimer's
-3) 
+3) Mean Imputation
+4) Logistic
+5) QDA
+6) LDA
+
+To do:
+4) Model Imputation
+5) Abstain Option of Diagnosis
+6) Cost Model
+7) Random Forest
+8) PCA
