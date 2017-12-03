@@ -22,4 +22,11 @@ EXAMDATE: Same, or next time the person comes to be examined
 
 Missing data can usually be attributed to loss of contact or death of patient
 
-Group patients  together
+Group patients together
+
+
+
+Checklist:
+1) Identified all variables
+2) Created variable that indicates whether a patient has ever had Alzheimer's
+3) 
