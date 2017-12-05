@@ -19,6 +19,30 @@ h3 {
     padding: 5px;
 }
 
+a:link {
+    color: steelblue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: lightseagreen;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightsteelblue;
+    background-color: transparent;
+    text-decoration: bold;
+}
+
+a:active {
+    color: ghostwhite;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
 body {
     font-family: "Lucida Grande";
 }
