@@ -73,7 +73,7 @@ filterDataExcl = function(colLabel,value) {
 };
 
 updateGeneralCatGraph = function() {
-    genderGraph.selectionChanged();
+    generalGraph.selectionChanged();
 };
 
 updateDiagnosisCatGraph = function() {
