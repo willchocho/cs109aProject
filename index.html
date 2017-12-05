@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CS 109a Final Project</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>CS 109a Final Project</h1>
+
+	<h2>Exploratory Data Analysis</h2>
+
+	<div class="container">
+		<div class="row">
+			<div id="general-chart-area" class="col-md-12">
+                <h3>Cumulative Categorical Data of Subjects</h3>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="generalColLabel">Display: </label>
+                        <select class="form-control" id="generalColLabel", onchange="updateGeneralCatGraph()">
+                            <option value="PTGENDER">Sex</option>
+                            <option value="PTETHCAT">Ethnicity</option>
+                            <option value="PTRACCAT">Race</option>
+                            <option value="PTMARRY">Marriage Status</option>
+                            <option value="DX_bl">Baseline Diagnosis</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+		</div>
+        <div class="row">
+            <div id="histogram-chart-area" class="col-md-12">
+                <h3>Histogram of Variables</h3>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Categorical Data of Subjects by Diagnosis</h3>
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="diagnosisColLabel">Display: </label>
+                    <select class="form-control" id="diagnosisColLabel", onchange="updateDiagnosisCatGraph()">
+                        <option value="PTGENDER">Sex</option>
+                        <option value="PTETHCAT">Ethnicity</option>
+                        <option value="PTRACCAT">Race</option>
+                        <option value="PTMARRY">Marriage Status</option>
+                        <option value="DX_bl">Baseline Diagnosis</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+		
+	<a href="cs109aProject/EDA_Final_Project_DEC2.ipynb">LINK</a>
+		
+        <div class="row">
+            <div id="control-chart-area" class="col-md-6">
+                <h3>Categorical Data of Subjects without Alzheimer's</h3>
+
+            </div>
+            <div id="patient-chart-area" class="col-md-6">
+                <h3>Categorical Data of Subjects with Alzheimer's</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div id="corr-chart-area" class="col-md-12">
+                <h3>Correlation between Variables</h3>
+            </div>
+        </div>
+	</div>
+
+	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/d3.js"></script>
+
+	<!-- Your implementation -->
+	<script src="js/CatBarGraph.js"></script>
+    <script src="js/Histogram.js"></script>
+    <script src="js/CorrGraph.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

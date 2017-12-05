@@ -1,0 +1,52 @@
+
+/* ADD YOUR STYLES HERE */
+
+h1 {
+    font-family: "Lucida Grande";
+    font-size: 50px;
+    padding: 25px;
+}
+
+h2 {
+    font-family: "Lucida Grande";
+    font-size: 30px;
+    padding: 25px;
+}
+
+h3 {
+    font-family: "Lucida Grande";
+    font-size: 15px;
+    padding: 5px;
+}
+
+body {
+    font-family: "Lucida Grande";
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.bar:hover {
+    fill: #395f88;
+}
+
+.axis {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x-axis path {
+    display: none;
+}
+
+.axis-title {
+    fill: #888;
+    font-size: 11px;
+}
