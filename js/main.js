@@ -1,11 +1,12 @@
-var allData;
-var genderGraph;
-var controlGraph, patientGraph;
-var histogram;
+var allData, controlData, patientData;
+var generalGraph, controlGraph, patientGraph;
+var histogram, controlHistogram, patientHistogram;
 
 d3.csv("data/ADNIMERGE.csv", function(error,data) {
     if (!error) {
         allData = data;
+        controlData = filterDataExcl("DX_BL","AD");
+        patientData = filterDataIncl("DX_BL","AD");
         wrangleData();
     }
     else {
@@ -15,13 +16,13 @@ d3.csv("data/ADNIMERGE.csv", function(error,data) {
 
     fullWidth = $("#general-chart-area").width();
 
-    genderGraph = new CatBarGraph(allData,"general-chart-area","generalColLabel","PTGENDER","Sex",fullWidth,fullWidth/3);
-    controlData = filterDataExcl("DX_bl","AD");
+    generalGraph = new CatBarGraph(allData,"general-chart-area","generalColLabel","PTGENDER","Sex",fullWidth,fullWidth/3);
     controlGraph = new CatBarGraph(controlData,"control-chart-area","diagnosisColLabel","PTGENDER","Sex",fullWidth/2,fullWidth/3);
-    patientData = filterDataIncl("DX_bl","AD");
     patientGraph = new CatBarGraph(patientData,"patient-chart-area","diagnosisColLabel","PTGENDER","Sex",fullWidth/2,fullWidth/3);
 
-    histogram = new Histogram(patientData,"histogram-chart-area","histogramGeneralColLabel","AGE",20,fullWidth,fullWidth/3);
+    histogram = new Histogram(allData,"histogram-chart-area","histogramGeneralColLabel","AGE",20,fullWidth,fullWidth/3);
+    controlHistogram = new Histogram(controlData,"control-histogram-area","histogramDiagnosisColLabel","AGE",20,fullWidth/2,fullWidth/3);
+    patientHistogram = new Histogram(patientData,"patient-histogram-area","histogramDiagnosisColLabel","AGE",20,fullWidth/2,fullWidth/3);
 });
 
 d3.csv("data/corr.csv", function(error,data) {
@@ -78,4 +79,13 @@ updateGeneralCatGraph = function() {
 updateDiagnosisCatGraph = function() {
     controlGraph.selectionChanged();
     patientGraph.selectionChanged();
+};
+
+updateGeneralHistogram = function() {
+    histogram.selectionChanged();
+};
+
+updateDiagnosisHistogram = function() {
+    controlHistogram.selectionChanged();
+    patientHistogram.selectionChanged();
 };

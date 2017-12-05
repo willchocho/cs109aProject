@@ -66,24 +66,15 @@ Histogram.prototype.initAxesBins = function() {
         .nice()
         .rangeRound([0, vis.width]);
 
-    console.log(vis.x.domain());
-    console.log(vis.x.ticks(vis.numTicks));
-
     vis.histogram = d3.histogram()
-        .domain(vis.x.domain())
-        .thresholds(vis.x.ticks(vis.numTicks));
+        .domain(vis.x.domain());
 
     vis.bins = vis.histogram(vis.colData);
-
-    console.log(vis.bins);
-
-    console.log(vis.bins[0].x0);
 
     vis.y = d3.scaleLinear()
         .domain([0, d3.max(vis.bins, function(d) { return d.length; })])
         .range([vis.height,0]);
 
-    /*
     this.xAxis = d3.axisBottom()
         .scale(vis.x);
 
@@ -92,7 +83,7 @@ Histogram.prototype.initAxesBins = function() {
 
     this.xAxisGroup = vis.svg.append("g")
         .attr("class", "x-axis axis")
-        .attr("transform", "translate(0," + (vis.height + 20) + ")");
+        .attr("transform", "translate(0," + (vis.height) + ")");
 
     this.yAxisGroup = vis.svg.append("g")
         .attr("class", "y-axis axis");
@@ -104,25 +95,68 @@ Histogram.prototype.initAxesBins = function() {
         .attr("x", - vis.height / 2)
         .attr("y", - vis.margin.left * 3 / 4)
         .attr("transform", "rotate(270)");
-    */
+};
+
+Histogram.prototype.updateAxesBins = function() {
+    vis = this;
+
+    vis.x = d3.scaleLinear()
+        .domain(d3.extent(vis.colData))
+        .nice()
+        .rangeRound([0, vis.width]);
+
+    vis.histogram = d3.histogram()
+        .domain(vis.x.domain());
+
+    vis.bins = vis.histogram(vis.colData);
+
+    vis.y = d3.scaleLinear()
+        .domain([0, d3.max(vis.bins, function(d) { return d.length; })])
+        .range([vis.height,0]);
 };
 
 Histogram.prototype.updateVis = function() {
     vis = this;
 
-    vis.bar = vis.barsGroup.selectAll(".histogramBar")
-        .data(vis.bins)
-        .enter().append("g")
-        .attr("class", "histogramBar bar")
-        .attr("transform", function(d) { return "translate(" + vis.x(d.x0) + "," + vis.y(d.length) + ")"; });
+    // Bars
+    var rectSVG = vis.svg.selectAll("rect")
+        .data(vis.bins);
 
-    vis.bar.append("rect")
-        .attr("x", 0)
-        .attr("width", vis.x(vis.bins[1].x1) - vis.x(vis.bins[1].x0) - 1)
-        .attr("height", function(d) { return vis.height - vis.y(d.length); });
+    var enterRects = rectSVG
+        .enter()
+        .append("rect")
+        .attr("class", "histogramBar bar");
 
-    vis.barsGroup.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + vis.height + ")")
-        .call(d3.axisBottom(vis.x));
+    var mergeRects = enterRects
+        .merge(rectSVG)
+        .attr("width", function(d) { return vis.x(d.x1) - vis.x(d.x0) - 1; })
+        .attr("x", function (d) {
+            return vis.x(d.x0);
+        })
+        .attr("y", vis.height)
+        .attr("height", 0)
+        .transition()
+        .duration(vis.transitionDuration)
+        .delay(vis.transitionDelay)
+        .attr("y", function (d) {
+            return vis.y(d.length);
+        })
+        .attr("height", function (d) {
+            return vis.height - vis.y(d.length);
+        });
+
+    rectSVG.exit().remove();
+
+    vis.xAxisGroup.call(d3.axisBottom(vis.x));
+    vis.yAxisGroup.call(d3.axisLeft(vis.y));
+};
+
+Histogram.prototype.selectionChanged = function(){
+    var vis = this;
+
+    vis.colLabel = d3.select("#" + vis.selectionBoxElement).property("value");
+
+    vis.wrangleData();
+    vis.updateAxesBins();
+    vis.updateVis();
 };

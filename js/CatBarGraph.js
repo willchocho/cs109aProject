@@ -39,6 +39,7 @@ CatBarGraph.prototype.wrangleData = function() {
     vis = this;
 
     vis.countKeys = d3.map(vis.data, function(d){return d[vis.colLabel];}).keys();
+    vis.countKeys.sort();
 
     vis.countValues = [];
     vis.countKeys.forEach(function(key){
@@ -185,4 +186,4 @@ CatBarGraph.prototype.selectionChanged = function(){
     vis.wrangleData();
     vis.updateAxes();
     vis.updateVis();
-}
+};
