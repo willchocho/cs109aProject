@@ -19,6 +19,12 @@ h3 {
     padding: 5px;
 }
 
+p {
+    font-family: "Lucida Grande";
+    font-size: 15px;
+    padding: 2.5px;
+}
+
 a:link {
     color: steelblue;
     background-color: transparent;
@@ -73,4 +79,53 @@ body {
 .axis-title {
     fill: #888;
     font-size: 11px;
+}
+
+
+.table {
+    width: 50%
+}
+
+.table td {
+    padding: 25px;
+}
+
+.table th {
+    padding: 25px;
+}
+
+.table tr {
+    background-color: azure;
+    color: black;
+}
+
+.table tr:nth-child(odd) {
+    background-color: ivory;
+    color: black;
+}
+
+.table tr.Header {
+    font-weight: bold;
+    background-color: lightseagreen;
+}
+
+.container {
+}
+
+.row {
+    padding: 10px;
+}
+
+.highlight tr.notHeader:hover {
+    background-color: rgba(0, 255, 226, 0.42);
+}
+
+.carousel {
+    width:55%;
+    height:300px;
+}
+
+.slide {
+    width:55%;
+    height:300px;
 }

@@ -6,35 +6,78 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CS 109a Final Project</title>
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <h1>CS 109a Final Project</h1>
+    <h1 align="center">CS 109a Final Project</h1>
+    <h3 align="center">Will Cho, Haruka Uchida, Jessica Zhao</h3>
 
-    <div class="container">
+    <div style="padding-left:250px; padding-right:250px; padding-top:50px; padding-bottom:50px;">
+        <p>
+            <strong style="font-size:35px">O</strong>ur team sought to determine which factors for a patient are most important in predicting his or her likelihood of having Alzheimer's.
+        </p>
+
+        <p>
+            <strong style="font-size:35px">U</strong>sing the ADNI Database, D3, and Python, we were able to visualize our data and develop a classification model that produces an optimal set of predictors to use for the prediction of Alzheimer's given a budget.
+        </p>
+    </div>
+
+    <p align="center">
+        Click on the slides below to explore our project
+    </p>
+
+    <div class="container" style="padding:50px">
         <div class="row">
-            <div class="col-md-12">
-                <a href="EDA_Page.html">Exploratory Data Analysis</a>
+            <div class="col-md-12" align="center">
+                <div id="visCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <h2>Exploratory Data Analysis</h2>
+                            <a href="EDA_Page.html">
+                                <img src="img/Slide1.png" alt="First Slide" class="slide">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h2>Models</h2>
+                            <a href="https://github.com/willchocho/cs109aProject/blob/master/Final_Project_Models.ipynb">
+                                <img src="img/Slide2.png" alt="Second Slide" class="slide">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h2>Report</h2>
+                            <a href="https://github.com/willchocho/cs109aProject/blob/master/Final_Project_Intro.ipynb">
+                                <img src="img/Slide3.png" alt="Third Slide" class="slide">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#visCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#visCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <a href="https://github.com/willchocho/cs109aProject/blob/master/EDA_Final_Project_DEC2.ipynb">Jupyter Notebook</a>
-            </div>
-        </div>
+    </div>
+
+    <div align="center">
+        <img src="img/logo-adni.png" style="height:50px">
+        <img src="img/d3-logo.png" style="height:50px">
+        <img src="img/python-logo.png" style="height:50px">
     </div>
 
 	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/d3.js"></script>
-
-	<!-- Your implementation -->
-	<script src="js/CatBarGraph.js"></script>
-    <script src="js/Histogram.js"></script>
-    <script src="js/CorrGraph.js"></script>
-	<script src="js/main.js"></script>
 </body>
 </html>
